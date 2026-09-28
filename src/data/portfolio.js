@@ -192,3 +192,37 @@ export const projectTypes = [
   "Website Redesign",
   "Other",
 ];
+
+export const services = [
+  {
+    title: "Business Websites",
+    text: "Fast, modern websites that present your brand clearly and turn visitors into enquiries.",
+    points: ["Custom design", "Clear calls-to-action", "Contact & lead forms"],
+    icon: "Monitor",
+  },
+  {
+    title: "Full-Stack Web Apps",
+    text: "MERN applications with React frontends, Express REST APIs and MongoDB databases.",
+    points: ["React + Node.js", "REST APIs", "MongoDB / Mongoose"],
+    icon: "ServerCog",
+  },
+  {
+    title: "Responsive UI",
+    text: "Pixel-careful interfaces that look and work great on every phone, tablet and desktop.",
+    points: ["Mobile-first", "Accessible markup", "Smooth interactions"],
+    icon: "MonitorSmartphone",
+  },
+  {
+    title: "Speed & Redesign",
+    text: "Refresh outdated sites and improve usability, performance and visual presentation.",
+    points: ["Performance tuning", "SEO basics", "Modern visual refresh"],
+    icon: "Gauge",
+  },
+];
+
+export const process = [
+  { step: "01", title: "Discover", text: "Understand your goals, audience and requirements.", icon: "MessagesSquare" },
+  { step: "02", title: "Design", text: "Plan the structure and shape a clean, modern look.", icon: "PenTool" },
+  { step: "03", title: "Develop", text: "Build it responsive, fast and ready to scale.", icon: "CodeXml" },
+  { step: "04", title: "Launch", text: "Test, deploy and keep improving after go-live.", icon: "Rocket" },
+];

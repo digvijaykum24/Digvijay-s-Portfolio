@@ -48,7 +48,7 @@ function SplitName({ text, delay = 0, className }) {
 
 const upperRoles = profile.roles.map((r) => r.toUpperCase());
 
-export default function Hero() {
+export default function Hero({ ready = true }) {
   const reduce = useReducedMotion();
   const typed = useTypewriter(upperRoles);
   const { scrollY } = useScroll();
@@ -61,6 +61,7 @@ export default function Hero() {
       aria-label="Introduction"
       className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-24 md:pt-32"
     >
+      {ready && <>
       <div className="mx-auto grid w-full max-w-7xl items-center gap-16 px-5 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
         {/* Left — copy */}
         <motion.div style={{ y: textY }} className="relative z-10 order-2 lg:order-1">
@@ -213,6 +214,7 @@ export default function Hero() {
         </span>
         <ArrowDown size={14} className="animate-bounce" aria-hidden="true" />
       </motion.a>
+      </>}
     </section>
   );
 }

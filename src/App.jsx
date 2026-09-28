@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { MotionConfig } from "framer-motion";
 import { SiReact, SiNodedotjs, SiMongodb, SiExpress, SiJavascript, SiHtml5, SiCss, SiBootstrap, SiGithub } from "react-icons/si";
 import Background from "./components/Background";
@@ -10,6 +11,8 @@ import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer, { BackToTop } from "./components/Footer";
+import Services from "./components/Services";
+import { Preloader, CtaBand } from "./components/Extras";
 
 const marquee = [
   [SiReact, "React.js"], [SiNodedotjs, "Node.js"], [SiExpress, "Express.js"], [SiMongodb, "MongoDB"],
@@ -37,6 +40,9 @@ function TechMarquee() {
 }
 
 export default function App() {
+  // Hero entrance waits for the intro curtain so its animations are actually seen.
+  const [ready, setReady] = useState(false);
+
   return (
     <MotionConfig reducedMotion="user">
       <a
@@ -45,16 +51,19 @@ export default function App() {
       >
         Skip to content
       </a>
+      <Preloader onDone={() => setReady(true)} />
       <Background />
       <Navbar />
       <main id="main">
-        <Hero />
+        <Hero ready={ready} />
         <TechMarquee />
         <About />
+        <Services />
         <Skills />
         <Projects />
         <Experience />
         <Education />
+        <CtaBand />
         <Contact />
       </main>
       <Footer />

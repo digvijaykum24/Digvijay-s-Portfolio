@@ -22,7 +22,9 @@ export default function Contact() {
     const data = new FormData(e.currentTarget);
     setStatus("sending");
     const subject = `New project enquiry — ${data.get("type")}`;
-    const body = `Hi Digvijay,\n\n${data.get("message")}\n\n— ${data.get("name")} (${data.get("email")})`;
+    const body = `Hi Digvijay,\n\n${data.get("message")}\n\n— ${data.get("name")}
+Email: ${data.get("email")}
+Mobile: ${data.get("phone")}`;
     setTimeout(() => {
       window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       setStatus("sent");
@@ -99,7 +101,21 @@ export default function Contact() {
                 <span className="mb-2 block text-sm text-white/70">Email</span>
                 <input name="email" type="email" required autoComplete="email" placeholder="you@company.com" className="field" />
               </label>
-              <label className="block sm:col-span-2">
+              <label className="block">
+                <span className="mb-2 block text-sm text-white/70">Mobile Number</span>
+                <input
+                  name="phone"
+                  type="tel"
+                  required
+                  autoComplete="tel"
+                  inputMode="tel"
+                  pattern="[+0-9 ()-]{10,16}"
+                  title="Enter a valid mobile number, e.g. +91 98765 43210"
+                  placeholder="+91 98765 43210"
+                  className="field"
+                />
+              </label>
+              <label className="block">
                 <span className="mb-2 block text-sm text-white/70">Project Type</span>
                 <select name="type" required defaultValue="" className="field appearance-none bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2334d399%22 stroke-width=%222.5%22><path d=%22m6 9 6 6 6-6%22/></svg>')] bg-[length:14px] bg-[position:right_1rem_center] bg-no-repeat pr-10 [&>option]:bg-ink-800">
                   <option value="" disabled>Select a project type</option>
